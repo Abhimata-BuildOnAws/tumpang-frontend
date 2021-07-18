@@ -1,36 +1,36 @@
-import './App.css';
-import Landing from './components/Landing';
-import Dashboard from './components/Dashboard';
-import Login from './components/Login'
-import { 
-  BrowserRouter,
-  Switch,
-  Route
-} from 'react-router-dom';
+import { BrowserRouter as Switch, Route, Redirect } from "react-router-dom";
 
+import About from './pages/About';
+import Dashboard from "./pages/Dashboard";
+import Home from './pages/Home';
+import Login from './pages/Login';
+import useToken from "./components/useToken";
 
 function App() {
-    return (
-      <div className="wrapper">
-        <BrowserRouter>
-          <Switch>
+  
+  const { token, setToken } = useToken();
+  console.log(token)
 
-            <Route exact path="/">
-                <Landing />
-            </Route>
+  return (
 
-            <Route path="/login">
-              <Login />
-            </Route>
+    <Switch>
+      <Route exact path='/' component={ Home }  />
+      <Route path='/about' component={ About }  />
 
-            <Route path="/dashboard">
-              <Dashboard />
-            </Route>
+      <Route path='/login'>
+        <Login setToken={setToken} />
+      </Route>
 
-          </Switch>
-        </BrowserRouter>
-    </div>
-    )
+      <Route path="/dashboard">
+        {token ? <Dashboard /> : <Redirect to="/login" />}
+      </Route>
+
+    </Switch>
+  )
 }
+
+
+
+
 
 export default App;
