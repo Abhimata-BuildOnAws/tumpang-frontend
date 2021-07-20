@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Redirect } from 'react-router-dom'
-import Navbar from '../components/Navbar'
 import PropTypes from 'prop-types'
 import axios from 'axios'
+import Navbar from '../../components/public/Navbar'
 
 const Login = ({ setToken }) => {
 

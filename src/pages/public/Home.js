@@ -1,11 +1,12 @@
 import React from 'react'
-import Landing from '../components/Landing'
-import Navbar from '../components/Navbar'
+import Landing from '../../components/public/Landing'
+import Navbar from '../../components/public/Navbar'
+
 
 const Home = () => {
     return (
         <>
-            <Navbar />
+            <Navbar/>
             <Landing />
         </>
     )

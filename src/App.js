@@ -1,10 +1,11 @@
 import { BrowserRouter as Switch, Route, Redirect } from "react-router-dom";
 
-import About from './pages/About';
-import Dashboard from "./pages/Dashboard";
-import Home from './pages/Home';
-import Login from './pages/Login';
-import useToken from "./components/useToken";
+
+import About from './pages/public/About';
+import Dashboard from "./pages/dashboard/Dashboard";
+import Home from './pages/public/Home';
+import Login from './pages/public/Login';
+import useToken from "./components/auth/useToken";
 
 function App() {
   
