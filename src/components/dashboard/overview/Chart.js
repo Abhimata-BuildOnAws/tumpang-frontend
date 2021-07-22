@@ -76,9 +76,6 @@ const Chart = () => {
   
     return (
       <>
-        <div className='header'>
-          <h1 className='title'>Your Carbon Emission</h1>
-        </div>
         <Bar
           data={data}
           options={options}
