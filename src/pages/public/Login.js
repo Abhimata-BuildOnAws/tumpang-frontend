@@ -10,19 +10,20 @@ const Login = ({ setToken }) => {
   const [password, setPassword] = useState()
   const history = useHistory();
 
+
   const handleSubmit = async event => {
     event.preventDefault()
 
-    //this function will login the user - change url to backend in production
-    axios.post('http://localhost:8080/login', {email, password})
-    .then(function(res){
-      setToken(res.data)
-      console.log(res.data)
+  //   //this function will login the user - change url to backend in production
+  //   axios.post('http://localhost:8080/login', {email, password})
+  //   .then(function(res){
+  //     setToken(res.data)
+  //     console.log(res.data)
       history.push("/dashboard");
-    })
-    .catch(function(error){
-      console.log(error)
-    })
+  //   })
+  //   .catch(function(error){
+  //     console.log(error)
+  //   })
   }
 
   return (

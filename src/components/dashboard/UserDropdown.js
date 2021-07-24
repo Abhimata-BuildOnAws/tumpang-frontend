@@ -37,7 +37,7 @@ const UserDropdown = () => {
             <img
               alt="..."
               className="rounded-full rounded-full border border-gray-100 shadow-sm h-12 w-12 "
-              src={require("../../assets/mock/arvin.jpeg").default}
+              src={require("../../assets/mock/arvin.jpg").default}
             />
           </div>
         </a>
