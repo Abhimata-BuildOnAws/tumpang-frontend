@@ -31,6 +31,7 @@ const genData = () => ({
   ],
 });
 
+
 const options = {
   scales: {
     yAxes: [
