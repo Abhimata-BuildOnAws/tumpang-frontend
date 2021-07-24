@@ -1,24 +1,37 @@
 import Chart from "./Chart"
-import ChartStatsCard from "./ChartStatsCard"
 
 
 const CarbonEmission = () => {
     return (
-        <div className="col-start-2 col-end-4 relative h-96 flex flex-col bg-black bg-white rounded shadow-md grid-cols-4 border-2">
-            <div className="absolute inset-y-0 right-0 h-full w-1/4 flex flex-col justify-center space-y-3 ">
-                <ChartStatsCard title="Resolved" value="449" />
-                <ChartStatsCard title="Received" value="426" />
-                <ChartStatsCard title="Average Carbon Emitted" value="5400g" />
-                <ChartStatsCard title="Average Carbon Saved" value="3200g" />
-                <ChartStatsCard title="Effective Carbon Emitted" value="2200g" />
-            </div>
-
-            <div className='header p-4'>
+        <div className="w-full h-full flex bg-white rounded shadow-md border-2">
+            
+            <div className="p-4 w-3/4">
                 <h1 className='title'>Your Carbon Emissions</h1>
+                <div className="py-8 h-full">
+                    <Chart />
+                </div>
             </div>
 
-            <div className=" h-full p-4 w-3/4">
-                <Chart />
+            <div className="w-1/4">
+                <div className="flex flex-col justify-center text-center border-b-2 border-l-2 h-1/4">
+                    <h5 className="text-gray-400 text-xs">Average Carbon Emitted Per Delivery</h5>
+                    <h3 className="p-1 text-2xl">1040g</h3>
+                </div>
+
+                <div className="flex flex-col justify-center text-center border-b-2 border-l-2 h-1/4">
+                    <h5 className="text-gray-400 text-xs">Average Carbon Emitted</h5>
+                    <h3 className="p-1 text-2xl">5400g</h3>
+                </div>
+
+                <div className="flex flex-col justify-center text-center border-b-2 border-l-2 h-1/4">
+                    <h5 className="text-gray-400 text-xs">Average Carbon Saved</h5>
+                    <h3 className="p-1 text-2xl">3200g</h3>
+                </div>
+
+                <div className="flex flex-col justify-center text-center border-l-2 h-1/4">
+                    <h5 className="text-gray-400 text-xs">Effective Carbon Emitted</h5>
+                    <h3 className="p-1 text-2xl">2200g</h3>
+                </div>
             </div>
 
         </div>    

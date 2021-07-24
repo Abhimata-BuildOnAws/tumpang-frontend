@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 
 const Navbar = ({ isDark }) => {
     return (
-        <nav className={`flex justify-between items-center h-16 bg-transparent relative text-lg ${isDark ? " text-white" : "text-black"}` } role='navigation'>
+        <nav className={`flex pt-4 justify-between items-center h-16 bg-transparent relative text-lg ${isDark ? " text-white" : "text-black"}` } role='navigation'>
             
-            <Link to='/' className='pl-8 text-3xl'>Tumpang</Link>
+            <Link to='/' className='pl-8 text-4xl'>Tumpang</Link>
             
             <div className="pr-8">
                 <Link className='p-4' to='/'>Home</Link>

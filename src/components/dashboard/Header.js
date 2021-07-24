@@ -4,8 +4,8 @@ export default function Header({ pageTitle }) {
     return (
         <>
             {/* Navbar */}
-            <nav className="absolute top-0 left-0 w-full z-10 bg-transparent flex items-center p-4">
-                <div className="w-full mx-autp items-center flex justify-between px-4 divide-x-2">
+            <nav className="w-full bg-transparent flex items-center p-8">
+                <div className="w-full items-center flex justify-between divide-x-2">
 
                     {/* Page Title */}
                     <h1 className="font-semibold uppercase inline-block">

@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 
 const rand = () => Math.floor(Math.random() * 255);
@@ -8,24 +7,25 @@ const genData = () => ({
   datasets: [
     {
       type: 'line',
-      label: 'Dataset 1',
-      borderColor: `rgb(${rand()}, ${rand()}, ${rand()})`,
+      label: 'Average Carbon Emissions(g)',
+      borderColor: `#83BB65`,
       borderWidth: 2,
       fill: false,
+      tension: 0.4,
       data: [rand(), rand(), rand(), rand(), rand(), rand()],
     },
     {
       type: 'bar',
-      label: 'Dataset 2',
-      backgroundColor: `rgb(${rand()}, ${rand()}, ${rand()})`,
+      label: 'Total Carbon Emissions',
+      backgroundColor: `#DFE0EB`,
       data: [rand(), rand(), rand(), rand(), rand(), rand(), rand()],
       borderColor: 'white',
       borderWidth: 2,
     },
     {
       type: 'bar',
-      label: 'Dataset 3',
-      backgroundColor: `rgb(${rand()}, ${rand()}, ${rand()})`,
+      label: 'Average Carbon Emissions',
+      backgroundColor: `#53C351`,
       data: [rand(), rand(), rand(), rand(), rand(), rand(), rand()],
     },
   ],
@@ -41,6 +41,8 @@ const options = {
       },
     ],
   },
+  // aspectRatio:2,
+  maintainAspectRatio: false,
 };
 
 const data = genData();
@@ -48,46 +50,30 @@ const data = genData();
 
 
 const Chart = () => {
-    const [clickedDataset, setClickedDataset] = useState('');
-    const [clickedElement, setClickedElement] = useState('');
-    const [clickedElements, setClickedElements] = useState('');
   
     const getDatasetAtEvent = dataset => {
       if (!dataset.length) return;
-  
-      const datasetIndex = dataset[0].datasetIndex;
-      setClickedDataset(data.datasets[datasetIndex].label);
     };
   
     const getElementAtEvent = element => {
       if (!element.length) return;
-  
-      const { datasetIndex, index } = element[0];
-      setClickedElement(
-        `${data.labels[index]} - ${data.datasets[datasetIndex].data[index]}`
-      );
     };
   
     const getElementsAtEvent = elements => {
       if (!elements.length) return;
-  
-      setClickedElements(elements.length);
     };
   
     return (
       <>
-        <Bar
+        <Bar className="h-4"
           data={data}
+          height={null}
+          width={null}
           options={options}
           getDatasetAtEvent={getDatasetAtEvent}
           getElementAtEvent={getElementAtEvent}
           getElementsAtEvent={getElementsAtEvent}
         />
-        <div className='text-center'>
-          <p>{clickedElement}</p>
-          <p>{clickedDataset}</p>
-          <p>{clickedElements}</p>
-        </div>
       </>
     );}
 

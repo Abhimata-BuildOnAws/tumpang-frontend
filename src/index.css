@@ -3,24 +3,31 @@
 @tailwind utilities;
 
 @layer base {
-  /* ask ruixian how to add fonts in tailwind */
 
+
+  /* RUI XIAN HOW TO DO FONTS */
   /* @font-face {
     font-family: Inter;
-    src: url(/fonts/Inter-Regular.ttf) format("ttf");
+    src: url(/fonts/Inter-Regular.ttf);
   }
   @font-face {
     font-family: Inter;
-    src: url(/fonts/Inter-Medium.ttf) format("ttf");
+    src: url(/fonts/Inter-Medium.ttf);
   } */
 
+  
 
-  h1 {
-    @apply text-2xl;
+
+
+  .bg-green{
+    background-color: #83BB65;
   }
-  h2 {
-    @apply text-xl;
+
+  .bg-dashboard{
+    background-color: #F7F8FC;
   }
+
+
 }
 
 

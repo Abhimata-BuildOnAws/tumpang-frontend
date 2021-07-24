@@ -1,14 +1,14 @@
 import { useState } from 'react'
-import { Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import axios from 'axios'
+import { useHistory } from "react-router-dom";
 import Navbar from '../../components/public/Navbar'
 
 const Login = ({ setToken }) => {
 
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
-  const [submitted, setSubmitted] = useState(false)
+  const history = useHistory();
 
   const handleSubmit = async event => {
     event.preventDefault()
@@ -18,15 +18,11 @@ const Login = ({ setToken }) => {
     .then(function(res){
       setToken(res.data)
       console.log(res.data)
-      setSubmitted(true)
+      history.push("/dashboard");
     })
     .catch(function(error){
       console.log(error)
     })
-  }
-
-  if (submitted) {
-    return <Redirect push to={{ pathname: '/dashboard' }}/>
   }
 
   return (

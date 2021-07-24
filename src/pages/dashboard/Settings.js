@@ -1,13 +1,16 @@
 import React from 'react'
+import Header from '../../components/dashboard/Header'
 
-const Settings = ({setPageTitle}) => {
-    setPageTitle('Settings')
+
+const Settings = () => {
 
     return (
-        <div>
-            
-        </div>
-    )
+        <>
+        <Header pageTitle="Setting" />
+
+        <div className="pb-24"></div>
+        </>
+)
 }
 
 export default Settings
