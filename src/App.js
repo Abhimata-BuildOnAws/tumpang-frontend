@@ -23,7 +23,7 @@ function App() {
       </Route>
 
       <Route path="/dashboard">
-        {token ? <Dashboard /> : <Redirect to="/login" />}
+        <Dashboard />
       </Route>
 
     </Switch>

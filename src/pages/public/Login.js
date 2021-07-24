@@ -32,7 +32,7 @@ const Login = ({ setToken }) => {
           className="absolute top-0 w-full h-full bg-gray-900"
           style={{
             backgroundImage:
-              "url(" + require("../../assets/img/takeout.jpeg").default + ")",
+              "url(" + require("../../assets/img/takeout.jpg").default + ")",
             backgroundSize: "100%",
             backgroundRepeat: "no-repeat"
           }}
