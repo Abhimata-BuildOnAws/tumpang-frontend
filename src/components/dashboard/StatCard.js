@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types'
-
 const StatCard = ({ title , value }) => {
     return (
         <div className="object-fit w-48 break-words bg-white rounded shadow-md items-center border-2">
@@ -13,11 +11,6 @@ const StatCard = ({ title , value }) => {
             </div>
         </div>
     )
-}
-
-StatCard.propTypes = {
-    title: PropTypes.string,
-    value: PropTypes.string
 }
 
 

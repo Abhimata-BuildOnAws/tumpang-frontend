@@ -1,0 +1,11 @@
+{
+  "auth": {
+    "tumpangfrontend398ddd41": {
+      "service": "Cognito",
+      "serviceType": "imported",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}

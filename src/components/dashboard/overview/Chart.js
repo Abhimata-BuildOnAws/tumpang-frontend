@@ -1,13 +1,14 @@
 import { Bar } from 'react-chartjs-2';
+import { useState, useEffect } from 'react';
 
 const rand = () => Math.floor(Math.random() * 255);
 
-const genData = () => ({
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+const defaultData = () => ({
+  labels: ['February', 'March', 'April', 'May', 'June', 'July'],
   datasets: [
     {
       type: 'line',
-      label: 'Average Carbon Emissions(g)',
+      label: 'Effective Carbon Emissions(g)',
       borderColor: `#83BB65`,
       borderWidth: 2,
       fill: false,
@@ -18,15 +19,15 @@ const genData = () => ({
       type: 'bar',
       label: 'Total Carbon Emissions',
       backgroundColor: `#DFE0EB`,
-      data: [rand(), rand(), rand(), rand(), rand(), rand(), rand()],
+      data: [rand(), rand(), rand(), rand(), rand(), rand()],
       borderColor: 'white',
       borderWidth: 2,
     },
     {
       type: 'bar',
-      label: 'Average Carbon Emissions',
+      label: 'Carbon Emissions Saved',
       backgroundColor: `#53C351`,
-      data: [rand(), rand(), rand(), rand(), rand(), rand(), rand()],
+      data: [rand(), rand(), rand(), rand(), rand(), rand()],
     },
   ],
 });
@@ -46,36 +47,43 @@ const options = {
   maintainAspectRatio: false,
 };
 
-const data = genData();
+const data = defaultData();
 
 
 
 const Chart = () => {
+
+  //ask ruixian how to dynamically call data from the last 6 months
   
-    const getDatasetAtEvent = dataset => {
-      if (!dataset.length) return;
-    };
+  // get the last 6 months as labels
+
+  // call back end from start to end period of these time intervals
+
   
-    const getElementAtEvent = element => {
-      if (!element.length) return;
-    };
-  
-    const getElementsAtEvent = elements => {
-      if (!elements.length) return;
-    };
-  
-    return (
-      <>
-        <Bar className="h-4"
-          data={data}
-          height={null}
-          width={null}
-          options={options}
-          getDatasetAtEvent={getDatasetAtEvent}
-          getElementAtEvent={getElementAtEvent}
-          getElementsAtEvent={getElementsAtEvent}
-        />
-      </>
-    );}
+  const getDatasetAtEvent = dataset => {
+    if (!dataset.length) return;
+  };
+
+  const getElementAtEvent = element => {
+    if (!element.length) return;
+  };
+
+  const getElementsAtEvent = elements => {
+    if (!elements.length) return;
+  };
+
+  return (
+    <>
+      <Bar className="h-4"
+        data={data}
+        height={null}
+        width={null}
+        options={options}
+        getDatasetAtEvent={getDatasetAtEvent}
+        getElementAtEvent={getElementAtEvent}
+        getElementsAtEvent={getElementsAtEvent}
+      />
+    </>
+  );}
 
 export default Chart

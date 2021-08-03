@@ -1,0 +1,25 @@
+{
+  "tumpang": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-tumpangfrontend-tumpang-10803-authRole",
+      "UnauthRoleArn": "arn:aws:iam::090694734020:role/amplify-tumpangfrontend-tumpang-10803-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::090694734020:role/amplify-tumpangfrontend-tumpang-10803-authRole",
+      "Region": "ap-southeast-1",
+      "DeploymentBucketName": "amplify-tumpangfrontend-tumpang-10803-deployment",
+      "UnauthRoleName": "amplify-tumpangfrontend-tumpang-10803-unauthRole",
+      "StackName": "amplify-tumpangfrontend-tumpang-10803",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:090694734020:stack/amplify-tumpangfrontend-tumpang-10803/b608acd0-f158-11eb-88cd-02ab63576a78",
+      "AmplifyAppId": "d2mvrsf43eu0of"
+    },
+    "categories": {
+      "auth": {
+        "tumpangfrontend398ddd41": {
+          "userPoolId": "ap-southeast-1_nqOu9kd6C",
+          "userPoolName": "reactnativebuildon59c4a921_userpool_59c4a921-dev",
+          "webClientId": "5n9lavdt0mh07p3sunid4vsihq",
+          "nativeClientId": "5n9lavdt0mh07p3sunid4vsihq"
+        }
+      }
+    }
+  }
+}

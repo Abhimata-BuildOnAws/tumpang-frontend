@@ -1,11 +1,36 @@
 import {Link} from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+
+
+const baseURL = "https://fevu7x9mx0.execute-api.ap-southeast-1.amazonaws.com/RX/user";
 
 const MiniLeaderboard = () => {
+
     const [top1, setTop1] = useState("Yap Bing Yu")
     const [top2, setTop2] = useState("Yap Bing Who")
     const [top3, setTop3] = useState("Yap Bing Me")
     const [top4, setTop4] = useState("Yap Bing He")
+
+    // call api for leaderboard
+    // useEffect(() => {
+    //     axios.post(`${baseURL}/leaderboard`, {
+    //         page: 1
+    //     })
+    //     .then((res) => {
+    //         console.log(res.data)
+    //     });
+    // }, []);
+
+    // useEffect(() => {
+    //     axios.post(`${baseURL}/tumpang/browse`, {
+    //         user_latitude: 1.3503241,
+    //         user_longitude: 103.9414863
+    //     })
+    //     .then((res) => {
+    //         console.log(res.data)
+    //     });
+    // }, []);
 
     
     return (

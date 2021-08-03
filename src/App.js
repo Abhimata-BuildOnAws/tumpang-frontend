@@ -1,16 +1,46 @@
-import { BrowserRouter as Switch, Route, Redirect } from "react-router-dom";
-
+import { useEffect, useState } from "react"; 
+import { BrowserRouter as Switch, Route, useHistory } from "react-router-dom";
+import Amplify from 'aws-amplify'
+import { Auth } from 'aws-amplify';
+import axios from 'axios'
 
 import About from './pages/public/About';
 import Dashboard from "./pages/dashboard/Dashboard";
 import Home from './pages/public/Home';
 import Login from './pages/public/Login';
-import useToken from "./components/auth/useToken";
+import config from './aws-exports';
+
+
+Amplify.configure({
+  ...config,
+  Analytics: {
+    disabled: true,
+  },
+});
+
 
 function App() {
-  
-  const { token, setToken } = useToken();
-  console.log(token)
+  axios.defaults.baseURL = "https://fevu7x9mx0.execute-api.ap-southeast-1.amazonaws.com/RX"
+  axios.defaults.headers.post['Content-Type'] = 'application/json';
+  axios.defaults.headers.post['Accept'] = 'application/json';
+  axios.defaults.headers.post['Access-Control-Allow-Origin'] = 'true'
+
+  const history = useHistory();
+  const [user, setUser] = useState();
+  const check = async() => {
+    try{
+      const { attributes } = await Auth.currentAuthenticatedUser();
+      setUser(attributes);
+    }
+    catch(e){
+      history.push('/login')
+    }
+  };
+  useEffect( () => { 
+    check(); 
+  }, []);
+  const userId = user?.["sub"];
+
 
   return (
 
@@ -19,7 +49,7 @@ function App() {
       <Route path='/about' component={ About }  />
 
       <Route path='/login'>
-        <Login setToken={setToken} />
+        <Login />
       </Route>
 
       <Route path="/dashboard">
@@ -30,8 +60,4 @@ function App() {
   )
 }
 
-
-
-
-
-export default App;
+export default App
