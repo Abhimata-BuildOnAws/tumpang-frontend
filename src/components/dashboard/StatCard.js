@@ -5,7 +5,7 @@ const StatCard = ({ title , value }) => {
                 <h5 className="text-gray-400 text-s">
                     {title}
                 </h5>
-                <h3 className="p-1 text-3xl">
+                <h3 className="p-1 text-2xl">
                     {value}
                 </h3>
             </div>

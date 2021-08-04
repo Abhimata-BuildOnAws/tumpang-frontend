@@ -1,5 +1,6 @@
+import { useEffect, useState } from 'react'
+import { Auth } from 'aws-amplify';
 import {Link} from 'react-router-dom'
-import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 
@@ -12,25 +13,26 @@ const MiniLeaderboard = () => {
     const [top3, setTop3] = useState("Yap Bing Me")
     const [top4, setTop4] = useState("Yap Bing He")
 
-    // call api for leaderboard
-    // useEffect(() => {
-    //     axios.post(`${baseURL}/leaderboard`, {
-    //         page: 1
-    //     })
-    //     .then((res) => {
-    //         console.log(res.data)
-    //     });
-    // }, []);
+    // call API for leaderboard data
+    const setUserData = async() => {
+        try{
+            const { attributes } = await Auth.currentAuthenticatedUser();
+            const userId = attributes.sub;
+            const res = await axios.post(`/user/leaderboard`, {user_id: userId});            
+            
+            setTop1(res.data[0].name);
+            setTop2(res.data[1].name);
+            setTop3(res.data[2].name);
+            setTop4(res.data[3].name);
+        }
+        catch(e){
+            console.log(e);
+        }
+    };
+    useEffect(() => {
+        setUserData();
+    }, []);
 
-    // useEffect(() => {
-    //     axios.post(`${baseURL}/tumpang/browse`, {
-    //         user_latitude: 1.3503241,
-    //         user_longitude: 103.9414863
-    //     })
-    //     .then((res) => {
-    //         console.log(res.data)
-    //     });
-    // }, []);
 
     
     return (

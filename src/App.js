@@ -24,22 +24,36 @@ function App() {
   axios.defaults.headers.post['Content-Type'] = 'application/json';
   axios.defaults.headers.post['Accept'] = 'application/json';
   axios.defaults.headers.post['Access-Control-Allow-Origin'] = 'true'
+  // axios.defaults.headers.post['Access-Control-Request-Method'] = 'POST'
 
-  const history = useHistory();
-  const [user, setUser] = useState();
-  const check = async() => {
-    try{
-      const { attributes } = await Auth.currentAuthenticatedUser();
-      setUser(attributes);
-    }
-    catch(e){
-      history.push('/login')
-    }
-  };
-  useEffect( () => { 
-    check(); 
-  }, []);
-  const userId = user?.["sub"];
+
+  // const history = useHistory();
+  // const [user, setUser] = useState();
+  // const check = async() => {
+  //   try{
+  //     const { attributes } = await Auth.currentAuthenticatedUser();
+  //     setUser(attributes);
+  //   }
+  //   catch(e){
+  //     history.push('/login')
+  //   }
+  // };
+  // useEffect( () => { 
+  //   check(); 
+  // }, []);
+  // const userId = user?.["sub"];
+
+
+  // useEffect(() => {
+  //   axios.post(`/tumpang/emission_history2`, {
+  //     user_id: "3158a7dd-6eeb-4d40-9b51-fded7fc3a814",
+  //     month_range: 6
+  //     // page: 1
+  //   })
+  //   .then((res) => {
+  //       console.log(res.data)
+  //   });
+  // }, []);
 
 
   return (

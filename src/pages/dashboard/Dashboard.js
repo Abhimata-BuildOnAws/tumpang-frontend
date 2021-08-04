@@ -11,22 +11,6 @@ import Navbar from '../../components/dashboard/Navbar'
 
 const Dashboard = () => {
     
-    const history = useHistory();
-    const [user, setUser] = useState();
-    const check = async() => {
-        try{
-            const { attributes } = await Auth.currentAuthenticatedUser();
-            setUser(attributes);
-        }
-        catch(e){
-            history.push('/login')
-        }
-    };
-    useEffect( () => { 
-        check(); 
-    }, []);
-    const userId = user?.["sub"];
-
     return (
         <>
             <Navbar />
@@ -50,7 +34,6 @@ const Dashboard = () => {
                 </Route>
             </Switch>
             </div>
-
         </>
     )
 }

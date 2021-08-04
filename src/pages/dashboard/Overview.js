@@ -9,8 +9,6 @@ import MiniForest from "../../components/dashboard/overview/MiniForest"
 import MiniLeaderboard from "../../components/dashboard/overview/MiniLeaderboard"
 import Header from '../../components/dashboard/Header'
 
-const baseURL = "https://fevu7x9mx0.execute-api.ap-southeast-1.amazonaws.com/RX/user";
-
 const Overview = () => {
 
     const [name, setName] = useState('Arvin Aik')
@@ -20,46 +18,28 @@ const Overview = () => {
     const [co2Emission, setCo2Emission] = useState(15000);
     const [co2Saved, setCo2Saved] = useState(5000);
 
-    //get userId of authenticated user
-    const history = useHistory();
-    const [user, setUser] = useState();
-    const check = async() => {
+    const history = useHistory();  
+
+    // get current authenticated user details
+    const setUserData = async() => {
         try{
             const { attributes } = await Auth.currentAuthenticatedUser();
-            setUser(attributes);
+            console.log(attributes);
+            const userId = attributes.sub;
+            const user = await axios.post(`/user/get_user`, {user_id: userId});
+            // set user attributes
+            setName(user.data.name);
+            setTreePoints(user.data.tree_points);
+            setCo2Emission(user.data.pollution);
+            setCo2Saved(user.data.carbon_saved);
         }
         catch(e){
             history.push('/login')
+            console.log(e);
         }
     };
-
-    // get user details
-    // useEffect( () => { 
-    //     check(); 
-
-    //     const userId = user?.["sub"];
-
-    //     axios.post(`/get_user`, {
-    //         user_id: userId
-    //     })
-    //     .then((res) => {
-    //         console.log(res.data)
-    //     });
-    // }, []);
-
-
-    // FOR TESTING CORS - get emission history 2
     useEffect(() => {
-        check();
-        const userId = user?.["sub"];
-        console.log(userId)
-        axios.post(`/tumpang/emission_history2`, {
-            user_id: userId,
-            month_range: 6
-        })
-        .then((res) => {
-            console.log(res.data)
-        });
+        setUserData();
     }, []);
 
 
