@@ -58,7 +58,7 @@ const CarbonEmission = () => {
         try{
             const { attributes } = await Auth.currentAuthenticatedUser();
             const userId = attributes.sub;
-            const res = await axios.post(`tumpang/emission_history2`, {user_id: userId, month_range: 5});
+            const res = await axios.post(`/tumpang/emission_history`, {user_id: userId, month_range: 5});
             const emissionsArray = (res.data.monthly_emissions.data).reverse();
 
             let numMonths = 0;

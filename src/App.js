@@ -9,6 +9,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import Home from './pages/public/Home';
 import Login from './pages/public/Login';
 import config from './aws-exports';
+import Signup from './pages/public/Signup'
 
 
 Amplify.configure({
@@ -27,34 +28,6 @@ function App() {
   // axios.defaults.headers.post['Access-Control-Request-Method'] = 'POST'
 
 
-  // const history = useHistory();
-  // const [user, setUser] = useState();
-  // const check = async() => {
-  //   try{
-  //     const { attributes } = await Auth.currentAuthenticatedUser();
-  //     setUser(attributes);
-  //   }
-  //   catch(e){
-  //     history.push('/login')
-  //   }
-  // };
-  // useEffect( () => { 
-  //   check(); 
-  // }, []);
-  // const userId = user?.["sub"];
-
-
-  // useEffect(() => {
-  //   axios.post(`/tumpang/emission_history2`, {
-  //     user_id: "3158a7dd-6eeb-4d40-9b51-fded7fc3a814",
-  //     month_range: 6
-  //     // page: 1
-  //   })
-  //   .then((res) => {
-  //       console.log(res.data)
-  //   });
-  // }, []);
-
 
   return (
 
@@ -64,6 +37,10 @@ function App() {
 
       <Route path='/login'>
         <Login />
+      </Route>
+
+      <Route path='/signup'>
+        <Signup />
       </Route>
 
       <Route path="/dashboard">
