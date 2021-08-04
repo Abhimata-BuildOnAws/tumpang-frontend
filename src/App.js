@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react"; 
 import { BrowserRouter as Switch, Route, useHistory } from "react-router-dom";
 import Amplify from 'aws-amplify'
-import { Auth } from 'aws-amplify';
 import axios from 'axios'
 
 import About from './pages/public/About';

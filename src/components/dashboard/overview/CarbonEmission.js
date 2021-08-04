@@ -96,10 +96,10 @@ const CarbonEmission = () => {
             });
 
             // set values
-            setAverageCarbonEmissionPerMonth((totalCarbonEmission/numMonths).toLocaleString());
-            setAverageCarbonEmissionSavedPerMonth((totalCarbonEmissionSaved/numMonths).toLocaleString());
-            setEffectiveCarbonEmissionPerMonth((totalEffectiveCarbonEmission/numMonths).toLocaleString());
-            setAverageNumberOfTumpangsPerMonth(totalNumTumpang/numMonths);
+            setAverageCarbonEmissionPerMonth(( Math.round(totalCarbonEmission/numMonths) ).toLocaleString());
+            setAverageCarbonEmissionSavedPerMonth(( Math.round(totalCarbonEmissionSaved/numMonths) ).toLocaleString());
+            setEffectiveCarbonEmissionPerMonth(( Math.round(totalEffectiveCarbonEmission/numMonths) ).toLocaleString());
+            setAverageNumberOfTumpangsPerMonth( Math.round(totalNumTumpang/numMonths) );
 
             //set chart data
             setChartLabels(months);
