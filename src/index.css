@@ -4,19 +4,10 @@
 
 @layer base {
 
-
-  /* RUI XIAN HOW TO DO FONTS */
-  /* @font-face {
-    font-family: Inter;
-    src: url(/fonts/Inter-Regular.ttf);
+  body {
+    font-family: 'Inter';
   }
-  @font-face {
-    font-family: Inter;
-    src: url(/fonts/Inter-Medium.ttf);
-  } */
-
   
-
   .bg-green{
     background-color: #83BB65;
   }

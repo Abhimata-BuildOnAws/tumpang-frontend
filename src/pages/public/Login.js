@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import PropTypes from 'prop-types'
-import axios from 'axios'
 import { useHistory } from "react-router-dom";
 import Navbar from '../../components/public/Navbar'
 import { Auth } from 'aws-amplify';
@@ -17,12 +15,15 @@ const Login = () => {
   async function signIn() {
     try {
       const user = await Auth.signIn(email, password);
+      if(!user) {
+        setErrorMessage('Invalid Email or Password!');
+      }
+      history.push('/dashboard');
     } 
     catch (error) {
       console.log('error signing in', error);
-      setErrorMessage('Invalid Email or Password!')
+      setErrorMessage('Invalid Email or Password!');
     }
-    history.push('/dashboard');
   }
 
   return (

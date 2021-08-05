@@ -24,7 +24,6 @@ const Overview = () => {
     const setUserData = async() => {
         try{
             const { attributes } = await Auth.currentAuthenticatedUser();
-            console.log(attributes);
             const userId = attributes.sub;
             const user = await axios.post(`/user/get_user`, {user_id: userId});
             const user_stats = await axios.post(`/user/user_stats`, {user_id: userId});

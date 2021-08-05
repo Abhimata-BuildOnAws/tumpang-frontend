@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react'
-import { Auth } from 'aws-amplify';
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 
-
-const baseURL = "https://fevu7x9mx0.execute-api.ap-southeast-1.amazonaws.com/RX/user";
 
 const MiniLeaderboard = () => {
 
@@ -14,12 +11,9 @@ const MiniLeaderboard = () => {
     const [top4, setTop4] = useState("Yap Bing He")
 
     // call API for leaderboard data
-    const setUserData = async() => {
+    const setData = async() => {
         try{
-            const { attributes } = await Auth.currentAuthenticatedUser();
-            const userId = attributes.sub;
-            const res = await axios.post(`/user/leaderboard`, {user_id: userId});            
-            
+            const res = await axios.post(`/user/leaderboard`, {page: 1});            
             setTop1(res.data[0].name);
             setTop2(res.data[1].name);
             setTop3(res.data[2].name);
@@ -30,7 +24,7 @@ const MiniLeaderboard = () => {
         }
     };
     useEffect(() => {
-        setUserData();
+        setData();
     }, []);
 
 
@@ -42,7 +36,7 @@ const MiniLeaderboard = () => {
                 <Link to="/dashboard/leaderboard" className="text-xs text-green-500">View All</Link>
             </div>
 
-            <h3 className="pl-4 text-xs text-gray-400">This Week</h3>
+            <h3 className="pl-4 text-xs text-gray-400">All Time</h3>
 
             <div className="flex justify-between px-4 py-4 pt-7 border-b-2">
                 <h1>{top1}</h1>

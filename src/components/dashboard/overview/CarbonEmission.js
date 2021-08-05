@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { Switch, Route, useHistory } from 'react-router-dom'
 import { Auth } from 'aws-amplify';
 import axios from 'axios';
 

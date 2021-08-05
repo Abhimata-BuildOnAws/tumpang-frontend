@@ -1,5 +1,4 @@
 import { Bar } from 'react-chartjs-2';
-import { useState, useEffect } from 'react';
 
 
 const options = {
@@ -19,12 +18,6 @@ const options = {
 
 
 const Chart = ({data}) => {
-
-  //ask ruixian how to dynamically call data from the last 6 months
-  
-  // get the last 6 months as labels
-
-  // call back end from start to end period of these time intervals
 
   
   const getDatasetAtEvent = dataset => {

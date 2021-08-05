@@ -1,15 +1,33 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import Header from '../../components/dashboard/Header'
-
+import { useHistory } from "react-router"
+import { Auth } from 'aws-amplify';
+import axios from 'axios';
 
 const Settings = () => {
 
     const [name, setName] = useState('Arvin Aik')
     const [treePoints, setTreePoints] = useState(17000);
-    const [numDeliveries, setNumDeliveries] = useState(60);
-    const [numTumpangs, setNumTumpangs] = useState(16);
-    const [co2Emission, setCo2Emission] = useState(15000);
-    const [co2Saved, setCo2Saved] = useState(5000);
+
+    const history = useHistory();
+
+    const setUserData = async() => {
+        try{
+            const { attributes } = await Auth.currentAuthenticatedUser();
+            const userId = attributes.sub;
+            const user = await axios.post(`/user/get_user`, {user_id: userId});
+            // set user attributes
+            setName(user.data.name);
+            setTreePoints(user.data.tree_points);
+        }
+        catch(e){
+            history.push('/login')
+            console.log(e);
+        }
+    };
+    useEffect(() => {
+        setUserData();
+    }, []);
 
     return (
         <>

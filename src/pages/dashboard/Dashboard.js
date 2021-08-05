@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react'
-import { Switch, Route, useHistory } from 'react-router-dom'
-import { Auth } from 'aws-amplify';
+import { Switch, Route } from 'react-router-dom'
 
 import Overview from './Overview'
 import Forest from './Forest'

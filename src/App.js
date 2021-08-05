@@ -1,6 +1,9 @@
-import { BrowserRouter as Switch, Route, useHistory } from "react-router-dom";
+import { BrowserRouter as Switch, Route } from "react-router-dom";
 import Amplify from 'aws-amplify'
 import axios from 'axios'
+import WebFont from 'webfontloader';
+import { useEffect } from 'react';
+
 
 import About from './pages/public/About';
 import Dashboard from "./pages/dashboard/Dashboard";
@@ -25,8 +28,15 @@ function App() {
   axios.defaults.headers.post['Access-Control-Allow-Origin'] = 'true'
   // axios.defaults.headers.post['Access-Control-Request-Method'] = 'POST'
 
+  useEffect( () => {
+    WebFont.load({
+      google: {
+        families: ['Inter']
+      }
+    });
+  }, []);
 
-
+  
   return (
 
     <Switch>
