@@ -74,7 +74,7 @@ const Forest = () => {
                     <p className="text-center">See your effect on the environment</p>
                 </div>
                 <div className="flex justify-center h-4/5">
-                    <img alt="forest" src={require("../../assets/img/forest.png").default} />
+                    <img alt="forest" src={treePoints >= 0 ? require("../../assets/img/forest.png").default : require("../../assets/img/bad_forest.png").default} />
                 </div>
                 
                 <div className="px-8 text-2xl font-bold">

@@ -69,7 +69,7 @@ const Overview = () => {
             </div>
 
             <div className="flex px-8 mb-8 gap-10">
-                <MiniForest />
+                <MiniForest treePoints={treePoints} />
                 <MiniLeaderboard />
             </div>
         </>

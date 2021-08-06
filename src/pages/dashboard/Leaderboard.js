@@ -32,7 +32,7 @@ const Leaderboard = () => {
             const leaderboard = await axios.post(`/user/leaderboard`, {page: 1});
             const leaderboardArray = [];
             leaderboard.data.forEach((element, index) => {
-                leaderboardArray.push({rank: index, name: element.name, carbonSaved: element.carbon_saved, treePoints:element.tree_points});
+                leaderboardArray.push({rank: index + 1, name: element.name, carbonSaved: element.carbon_saved, treePoints:element.tree_points});
             })
             setLeaderboardData(leaderboardArray);
 
